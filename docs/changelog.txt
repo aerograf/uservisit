@@ -1,0 +1,11 @@
+<h5>2.31 </h5>
+<hr>
+- another bug-fix by dasdan - problem when deleting uservisit stats when register_globals is off in you php.ini the delete action will not work.
+
+<h5>2.3 </h5>
+<hr>
+- adapted for register_global off by Dasdan
+
+<h5>2.2 </h5>
+<hr>
+- Bug fix - auto database cleanup

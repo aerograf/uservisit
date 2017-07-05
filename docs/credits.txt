@@ -1,0 +1,4 @@
+Credits
+===============
+
+Originally developed by Pascal Le Boustouller, and adopted by Solo
