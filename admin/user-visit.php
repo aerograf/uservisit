@@ -1,4 +1,4 @@
-<?
+<?php
 
 #######################################################
 #  Visites de Membres version 2.1 pour Xoops 2.0.x	#
