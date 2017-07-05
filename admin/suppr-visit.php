@@ -9,7 +9,7 @@
 #  Licence : GPL 							#
 #######################################################
 
-include 'admin_header.php';
+require_once __DIR__ . '/admin_header.php';
 
 xoops_cp_header();
 $adminObject  = \Xmf\Module\Admin::getInstance();
@@ -109,4 +109,4 @@ switch ($su) {
                       
         }
         
-include 'admin_footer.php';
+require_once __DIR__ . '/admin_footer.php';

@@ -9,7 +9,7 @@
 #  Licence : GPL 							#
 #######################################################
 
-include 'admin_header.php';
+require_once __DIR__ . '/admin_header.php';
 
 xoops_cp_header();
 $adminObject  = \Xmf\Module\Admin::getInstance();
@@ -84,4 +84,4 @@ if ($visi == 0) {
     echo "<br /><hr style='border:1px dashed black;' /><br /><div style='text-align:center;'><div class='ul_button'><a href='suppr-visit.php?su=mems'>" . _AD_USERVISIT_DELALLSTATS . '</a></div></div></fieldset>';
 }
 
-include 'admin_footer.php';
+require_once __DIR__ . '/admin_footer.php';

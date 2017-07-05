@@ -10,7 +10,7 @@
  * @version	$Id: blocks_mytype.php 2017-06-06 
 **/
                                                                       
-include_once 'admin_header.php';
+include_once __DIR__ . '/admin_header.php';
 xoops_cp_header();
 $adminObject  = \Xmf\Module\Admin::getInstance();
 $adminObject->addInfoBox(_AD_USERVISIT_STARTUP_DATA);
@@ -22,4 +22,4 @@ if (strpos(file_get_contents('../../../footer.php'), "include_once XOOPS_ROOT_PA
 $adminObject->displayNavigation(basename(__FILE__));
 $adminObject->displayIndex();
 
-include_once 'admin_footer.php';
+include_once __DIR__ . '/admin_footer.php';

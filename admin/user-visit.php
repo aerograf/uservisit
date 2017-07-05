@@ -10,7 +10,7 @@
 #  Licence : GPL 							#
 #######################################################
 
-include 'admin_header.php';
+require_once __DIR__ . '/admin_header.php';
 
 xoops_cp_header();
 $adminObject  = \Xmf\Module\Admin::getInstance();
@@ -92,7 +92,7 @@ if ($visi == 0) {
   echo "<div class='ul_div_th_25'>" . _AD_USERVISIT_VIEW . '</div>';
   echo "<br style='clear:both;' />";
 
-        while (list($page, $cpage) = mysqli_fetch_row($visit)) {
+        while (list($page, $cpage) = $GLOBALS['xoopsDB']->fetchRow($visit)) {
             $page_html = preg_replace('/wpc/', '/.../', $page);
             $page_modules = preg_replace('/modules/', '/', $page_html);
             if (strlen($page_modules) >= 52) {
@@ -113,7 +113,7 @@ if ($visi == 0) {
   echo "<div class='ul_div_th_25'>" . _AD_USERVISIT_LANG . '</div>';
   echo "<br style='clear:both;' />";
       
-      while (list($nav, $cnav, $langue) = mysqli_fetch_row($visit2)) {
+      while (list($nav, $cnav, $langue) = $GLOBALS['xoopsDB']->fetchRow($visit2)) {
           echo "<div style='text-align:center;'>";
           echo "<div class='ul_div_td_45'>$nav</div>";
           echo "<div class='ul_div_td_u_10'>$cnav</div>";
@@ -175,4 +175,4 @@ if ($visi == 0) {
     echo "<br /><hr style='border:1px dashed black;' /><br /><div style='text-align:center;'><div class='ul_button'><a href='admin.php'>" . _AD_USERVISIT_BACKLIST . "</a></div>&nbsp;&nbsp;<div class='ul_button'><a href='suppr-visit.php?su=mems'>" . _AD_USERVISIT_DELSTAT . '</a></div></div></fieldset>';
 }
 
-include 'admin_footer.php';
+require_once __DIR__ . '/admin_footer.php';
