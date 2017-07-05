@@ -96,7 +96,7 @@ if ($visi == 0) {
             $page_html = preg_replace('/wpc/', '/.../', $page);
             $page_modules = preg_replace('/modules/', '/', $page_html);
             if (strlen($page_modules) >= 52) {
-                $page_modules = substr($page_modules, 0, (52 -1)) . '...';
+                $page_modules = substr($page_modules, 0, 52 - 1) . '...';
             }
             echo "<div class='ul_div_td_25'><a href='$page' target='_blank'>$page_modules</a></div>";
             echo "<div class='ul_div_td_25'>$cpage</div><br style='clear:both;' />";

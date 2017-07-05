@@ -87,10 +87,10 @@ function SupprAll($q)
 }
 
 $su=$_GET['su'];
-$visitname = (isset($_GET['visitname'])) ? $_GET['visitname']:'';
-$id = (isset($_GET['id'])) ? $_GET['id']:'';
-$q = (isset($_GET['q'])) ? $_GET['q']:'';
-$supip = (isset($_GET['supip'])) ? $_GET['supip']:'';
+$visitname = isset($_GET['visitname']) ? $_GET['visitname']:'';
+$id = isset($_GET['id']) ? $_GET['id']:'';
+$q = isset($_GET['q']) ? $_GET['q']:'';
+$supip = isset($_GET['supip']) ? $_GET['supip']:'';
 
 switch ($su) {
                                     
