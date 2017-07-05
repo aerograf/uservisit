@@ -28,6 +28,12 @@ $myts = MyTextSanitizer::getInstance();
 
 echo "<style>@import '../assets/css/admin.css' screen;</style>";
 
+/**
+ * @param     $res
+ * @param     $row
+ * @param int $field
+ * @return mixed
+ */
 function mysqli_result($res, $row, $field=0)
 {
     $res->data_seek($row);

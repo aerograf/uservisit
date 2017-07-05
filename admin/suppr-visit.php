@@ -20,6 +20,10 @@ global $xoopsDB, $xoopsUser;
 echo "<div style='float:left;'><img src='../assets/images/delet.png'  alt='User Visit'></div>";
 echo "<br style='clear:both;' /><hr /><br />";
 
+/**
+ * @param $visitname
+ * @param $q
+ */
 function SupprM($visitname, $q)
 {
     global $xoopsDB;
@@ -42,6 +46,12 @@ function SupprM($visitname, $q)
     }
 }
 
+/**
+ * @param $visitname
+ * @param $id
+ * @param $q
+ * @param $supip
+ */
 function SupprD($visitname, $id, $q, $supip)
 {
     global $xoopsDB;
@@ -63,7 +73,10 @@ function SupprD($visitname, $id, $q, $supip)
         echo '</fieldset>';
     }
 }
-  
+
+/**
+ * @param $q
+ */
 function SupprAll($q)
 {
     global $xoopsDB;

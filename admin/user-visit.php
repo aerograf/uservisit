@@ -18,6 +18,10 @@ $adminObject->displayNavigation(basename(__FILE__));
         
 global $xoopsDB, $xoopsUser;
 
+/**
+ * @param $duree
+ * @return string
+ */
 function convert($duree)
 {
     $minute = 60;
