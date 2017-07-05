@@ -48,6 +48,5 @@ $adminmenu = array(
           'link'      =>  'admin/about.php',
           'desc'      =>  '',
           'icon'    =>    'assets/images/about.png'
-          )          
-);                    
-
+          )
+);

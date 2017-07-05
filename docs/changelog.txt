@@ -1,6 +1,7 @@
-<h5>2.50 </h5>
+<h5>2.50 Beta 1 [NOT RELEASED] </h5>
 <hr>
 - Adapted for XOOPS 2.5.8+ (PHP7) - Aerograf (https://www.shmel.org/forums/viewtopic.php?forum=8&topic_id=25)
+- added preloads for XOOPS footer (mamba, credit goes to Dylian: https://xoops.org/modules/newbb/viewtopic.php?post_id=322493)
 
 
 <h5>2.31 </h5>

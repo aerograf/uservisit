@@ -1,8 +1,8 @@
 #########################################################
 #  Visites de Membres version 2.1b pour Xoops 2.0.x	#
 #  							#
-#  Copyright © 2002, Pascal Le Boustouller		#
-#  Adaptation © 2003, Solo ( www.wolfpackclan.com )	#
+#  Copyright Â© 2002, Pascal Le Boustouller		#
+#  Adaptation Â© 2003, Solo ( www.wolfpackclan.com )	#
 #  							#
 #  Licence : GPL 					#
 #########################################################
@@ -10,17 +10,17 @@
 
 Module Visite de Membres
 
-Ce module permet au webmestre du site de contôler les pages et le visites des membres de son site.
+Ce module permet au webmestre du site de contÃ´ler les pages et le visites des membres de son site.
 
-Installation : uploader le répertoire "html" et tout les fichiers attachés à la racine de votre site/serveur.
+Installation : uploader le rÃ©pertoire "html" et tout les fichiers attachÃ©s Ã  la racine de votre site/serveur.
 
 Attention ! 
 
-Le fichier "footer.php" doit remplacer celui qui est situé à la racine de votre site. Ce fichier est celui de la version 2.0.4 de Xoops. Si vous préférez conserver votre footer original (pour des versions antérieures ou supérieures à celui-ci), ou si vous n'êtes pas sûre, ajoutez simplement la ligne suivante dans vorte fichier "footer.php" original. 
+Le fichier "footer.php" doit remplacer celui qui est situÃ© Ã  la racine de votre site. Ce fichier est celui de la version 2.0.4 de Xoops. Si vous prÃ©fÃ©rez conserver votre footer original (pour des versions antÃ©rieures ou supÃ©rieures Ã  celui-ci), ou si vous n'Ãªtes pas sÃ»re, ajoutez simplement la ligne suivante dans vorte fichier "footer.php" original. 
 
 include(XOOPS_ROOT_PATH."/modules/uservisit/index.php");
 
-L'auteur du module ne peut être tenu pour responsable d'éventuels problèmes causés à votre site Xoops suite à l'installation de ce module.
+L'auteur du module ne peut Ãªtre tenu pour responsable d'Ã©ventuels problÃ¨mes causÃ©s Ã  votre site Xoops suite Ã  l'installation de ce module.
 
 Bon amusement !
 
