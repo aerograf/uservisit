@@ -1,6 +1,11 @@
+<h5>2.50 </h5>
+<hr>
+- Adapted for XOOPS 2.5.8+ (PHP7) - Aerograf (https://www.shmel.org/forums/viewtopic.php?forum=8&topic_id=25)
+
+
 <h5>2.31 </h5>
 <hr>
-- another bug-fix by dasdan - problem when deleting uservisit stats when register_globals is off in you php.ini the delete action will not work.
+- another bug-fix by dasdan - problem when deleting uservisit stats when register_globals is off in you php.ini the delete action will not work. (Solo71)
 
 <h5>2.3 </h5>
 <hr>

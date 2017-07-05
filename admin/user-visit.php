@@ -2,25 +2,21 @@
 
 #######################################################
 #  Visites de Membres version 2.1 pour Xoops 2.0.x	#
-#  Copyright © 2002, Pascal Le Boustouller		#
-#  Adaptation © 2003, Solo ( www.wolfpackclan.com )	#
+#  Copyright Â© 2002, Pascal Le Boustouller		#
+#  Adaptation Â© 2003, Solo ( www.wolfpackclan.com )	#
+#  Visites de Membres version 2.5 pour Xoops 2.5.8+	#
+#  Adaptation Â© 2017 XOOPS 2.5.8+ (PHP7) - Aerograf
 #  									#
 #  Licence : GPL 							#
 #######################################################
 
-include("../include/admin_header.php");
-xoops_cp_header();
-if ( file_exists("../language/".$xoopsConfig['language']."/main.php") ) {
-	include "../language/".$xoopsConfig['language']."/main.php";
-} else {
-	include "../language/english/main.php";
-}
+include 'admin_header.php';
 
-		echo "<br />\n";
+xoops_cp_header();
+$adminObject  = \Xmf\Module\Admin::getInstance();
+$adminObject->displayNavigation(basename(__FILE__));
 		
 global $xoopsDB, $xoopsUser;
-	            OpenTable();
-
 
 function convert($duree) {
 $minute = 60;
@@ -35,144 +31,128 @@ $chaine .= $reste."s";
 return $chaine;
 }
 
-echo "<B>"._MD_USERVISIT_HEADER." ".$xoopsConfig['sitename']."</B><p>";
-echo "<img src=../images/dummy.gif align=\"right\"></a><p>";
+echo "<div style='float:left;'><img src='../assets/images/about.png'  alt='User Visit'></div>&nbsp;";
+echo "&nbsp;<strong style='color:blue;font-size:large;'>"._AD_USERVISIT_HEADER." ".$xoopsConfig['sitename']."</strong>";
+echo "<br style='clear:both;' /><hr /><br />";
 
- echo    "<CENTER>[ <A HREF=\"admin.php\">"._MD_USERVISIT_BACK."</A> | <A HREF=\"suppr-visit.php?su=mems\">"._MD_USERVISIT_DELSTAT."</A> ]</CENTER><P>";
-
-$vm = $HTTP_GET_VARS['vm'];
-    $visit= mysql_query("SELECT * FROM ".$xoopsDB->prefix("visit_user")." WHERE visitname = '$vm' ORDER BY temps");
-    $visi=mysql_num_rows($visit);
+    $vm = $_GET['vm'];
+    $visit= $GLOBALS['xoopsDB']->query("SELECT * FROM ".$xoopsDB->prefix("visit_user")." WHERE visitname = '$vm' ORDER BY temps");
+    $visi = $visit->num_rows;
 
 if($visi == 0) {
-  echo ""._MD_USERVISIT_NOVISIT."<P>";
-} else {  
-  echo ""._MD_USERVISIT_THEREIS." <FONT COLOR=\"#FF0000\">$visi</FONT> "._MD_USERVISIT_VISITFROM." <B>$vm</B>.<p>";
-
-  echo "<CENTER><TABLE BORDER=0 CELLPADDING=4 CELLSPACING=1 class='bg2'>
-    <TR class='bg2'>
-      <TD><CENTER><B>"._MD_USERVISIT_VISITS."</B></CENTER></TD>
-      <TD><CENTER><B>"._MD_USERVISIT_PAGESVIEW."</B></CENTER></TD>
-      <TD><CENTER><B>"._MD_USERVISIT_LOADIN."</B></CENTER></TD>
-      <TD><CENTER><B>"._MD_USERVISIT_LOADOUT."</B></CENTER></TD>
-      <TD><CENTER><B>"._MD_USERVISIT_VISITLENGHT."</B></CENTER></TD>
-    </TR>";
-
+  echo "<fieldset>";
+  echo "<div class='ul_dummy'><img src='../assets/images/dummy.gif' alt='User Visit'></div>";
+  echo "<div class='ul_novisit'>" . _AD_USERVISIT_NOVISIT . "</div>";
+} else {
+  echo "<fieldset>";  
+  echo "<legend>&nbsp;" . _AD_USERVISIT_THEREIS . "&nbsp;<strong style='color:#FF0000'>$visi</strong>&nbsp;" . _AD_USERVISIT_VISITFROM . "&nbsp;$vm&nbsp;</legend>";
+  echo "<div style='float:right;'><img src='../assets/images/dummy.gif' alt='User Visit'></div>";
+  echo "<br style='clear:both;' />";
+  echo "<div style='text-align:center;'>";
+  echo "<div class='ul_div_th_10'>" . _AD_USERVISIT_VISITS . "</div>";
+  echo "<div class='ul_div_th_10'>" . _AD_USERVISIT_PAGESVIEW . "</div>";
+  echo "<div class='ul_div_th_20'>" . _AD_USERVISIT_LOADIN . "</div>";
+  echo "<div class='ul_div_th_20'>" . _AD_USERVISIT_LOADOUT . "</div>";  
+  echo "<div class='ul_div_th_20'>" . _AD_USERVISIT_VISITLENGHT . "</div><br style='clear:both;' />";
 
   $i=0; 
 while ($i < $visi) {
-  $supip = mysql_result($visit, $i, "ip");
-  $id = mysql_result($visit, $i, "id");
-  $nom = mysql_result($visit, $i, "visitname");
-  $nvisite = mysql_result($visit, $i, "nvisit");
-  $tem = mysql_result($visit, $i, "temps");
-  $temf = mysql_result($visit, $i, "tempsf");
-  
+  $supip = mysqli_result($visit, $i, "ip");
+  $id = mysqli_result($visit, $i, "id");
+  $nom = mysqli_result($visit, $i, "visitname");
+  $nvisite = mysqli_result($visit, $i, "nvisit");
+  $tem = mysqli_result($visit, $i, "temps");
+  $temf = mysqli_result($visit, $i, "tempsf");
   $tems = date("j-m-Y H:i:s" ,$tem);
   $temss = date("j-m-Y H:i:s" ,$temf);
-  
-  
   $temm = abs($temf-$tem);
 
 $ii = ($i+1);
-  
- echo "<tr class='bg1'><td><CENTER>$ii</CENTER></td><td><CENTER>$nvisite</CENTER></td><td><CENTER><FONT SIZE=1>$tems</FONT></CENTER></td><td><CENTER><FONT SIZE=1>$temss</FONT></CENTER></td><td><CENTER>". convert($temm) ."</CENTER></td></tr>";
-
+  echo "<div style='text-align:center;'>";
+  echo "<div class='ul_div_td_u_10'>$ii</div>";
+  echo "<div class='ul_div_td_u_10'>$nvisite</div>";
+  echo "<div class='ul_div_td_20'>$tems</div>";
+  echo "<div class='ul_div_td_20'>$temss</div>";  
+  echo "<div class='ul_div_td_20'>" . convert($temm) . "</div>";
+  echo "</div>";  
 
   $i++; 
   }
- echo    "</TABLE></CENTER><P>";
- echo "<CENTER>[ <A HREF=\"suppr-visit.php?su=mdet&visitname=$nom&supip=termine\">"._MD_USERVISIT_DELSTATOF." $nom</A> ]<BR>"._MD_USERVISIT_DELSTATNOTE."</CENTER>";
- 
- 
- echo "<P><BR>";
+ echo "<br /><hr style='border:1px dashed black;' /><br /><div style='text-align:center;'><div class='ul_button'><a href='suppr-visit.php?su=mdet&visitname=$nom&supip=termine'>" . _AD_USERVISIT_DELSTATOF . "&nbsp;$nom</a></div><br />" . _AD_USERVISIT_DELSTATNOTE . "</div><br style='clear:both;' />";
 }
 
+    $visit = $GLOBALS['xoopsDB']->query("SELECT distinct page, count(page) as cpage FROM ".$xoopsDB->prefix("visit_user_page")." WHERE nom = '$vm' GROUP BY page ORDER BY page ASC");
+    $visi = $visit->num_rows;
 
+  echo "<div style='float:left;color:blue;font-weight:600;'>$vm&nbsp;" . _AD_USERVISIT_HASVISITED . "&nbsp;$visi&nbsp;" . _AD_USERVISIT_DIFFPAGES . "</div>";
+  echo "<br /><br style='clear:both;' />";
+  echo "<div style='text-align:center;'>";
+  echo "<div class='ul_div_th_25'>" . _AD_USERVISIT_PAGES . "</div>";
+  echo "<div class='ul_div_th_25'>" . _AD_USERVISIT_VIEW . "</div>";
+  echo "<br style='clear:both;' />";
 
-    $visit = mysql_query("SELECT distinct page, count(page) as cpage FROM ".$xoopsDB->prefix("visit_user_page")." WHERE nom = '$vm' GROUP BY page ORDER BY page ASC");
-    $visi=mysql_num_rows($visit);
-
-
-  echo "<B>$vm</B> "._MD_USERVISIT_HASVISITED." <B>$visi</B> "._MD_USERVISIT_DIFFPAGES."<p>";
-  echo "<CENTER><TABLE BORDER=0 CELLPADDING=4 CELLSPACING=1 class='bg2'>
-    <TR class='bg2'>
-      <TD><B>"._MD_USERVISIT_PAGES."</B></TD>
-      <TD ALIGN=right><CENTER><B>"._MD_USERVISIT_VIEW."</B></CENTER></TD>
-    </TR>";
-
-
-        while(list($page, $cpage) = mysql_fetch_row($visit)) {
-        	$page_html = ereg_replace("/wpc/", "/.../", $page);
-        	$page_modules = ereg_replace("/modules/", "/", $page_html);
+        while(list($page, $cpage) = mysqli_fetch_row($visit)) {
+        	$page_html = preg_replace("/wpc/", "/.../", $page);
+        	$page_modules = preg_replace("/modules/", "/", $page_html);
 		if (strlen($page_modules) >= 52) {
 				$page_modules = substr($page_modules,0,(52 -1))."...";
 			}
-
-echo "<tr class='bg1' align='left'><td><a href=\"$page\" target=\"_blank\">$page_modules </a></td><td align='right'>$cpage</td></tr>";
-
+  echo "<div class='ul_div_td_25'><a href='$page' target='_blank'>$page_modules</a></div>";
+  echo "<div class='ul_div_td_25'>$cpage</div><br style='clear:both;' />";
   }
- echo    "</TABLE></CENTER><P><BR>";
- 
- $visit2 = mysql_query("SELECT distinct nav, count(nav) as cnav, langue FROM ".$xoopsDB->prefix("visit_user_page")." WHERE nom = '$vm' GROUP BY nav ORDER BY cnav DESC");
-    $visi2=mysql_num_rows($visit2);
+  echo "</div><br style='clear:both;' />"; 
+ $visit2 = $GLOBALS['xoopsDB']->query("SELECT distinct nav, count(nav) as cnav, langue FROM ".$xoopsDB->prefix("visit_user_page")." WHERE nom = '$vm' GROUP BY nav ORDER BY cnav DESC");
+    $visi2=mysqli_num_rows($visit2);
 
-
-  echo ""._MD_USERVISIT_OSOF." <B>$vm</B>.<p>";
-  echo "<CENTER><TABLE BORDER=0 CELLPADDING=4 CELLSPACING=1 class='bg2'>
-    <TR class='bg2'>
-      <TD><B>"._MD_USERVISIT_OS."</B></TD>
-      <TD ALIGN=right><B>"._MD_USERVISIT_PAGES."</B></TD>
-      <TD><CENTER><B>"._MD_USERVISIT_LANG."</B></CENTER></TD>
-    </TR>";
-
-
-        while(list($nav, $cnav, $langue) = mysql_fetch_row($visit2)) {
-  
- echo "<tr class='bg1'><td>$nav</td><td ALIGN=right>$cnav</td><td><CENTER>$langue</CENTER></td></tr>";
-
+  echo "<div style='float:left;color:blue;font-weight:600;'>" . _AD_USERVISIT_OSOF . "&nbsp;$vm</div>";
+  echo "<br /><br style='clear:both;' />";  
+  echo "<div style='text-align:center;'>";
+  echo "<div class='ul_div_th_45'>" . _AD_USERVISIT_OS . "</div>";
+  echo "<div class='ul_div_th_10'>" . _AD_USERVISIT_PAGES . "</div>";
+  echo "<div class='ul_div_th_25'>" . _AD_USERVISIT_LANG . "</div>";
+  echo "<br style='clear:both;' />";
+      
+      while(list($nav, $cnav, $langue) = mysqli_fetch_row($visit2)) {
+  echo "<div style='text-align:center;'>";
+  echo "<div class='ul_div_td_45'>$nav</div>";
+  echo "<div class='ul_div_td_u_10'>$cnav</div>";
+  echo "<div class='ul_div_td_25'>$langue</div>";
+  echo "</div>";  
   }
- echo    "</TABLE></CENTER><P><BR>";
- 
- 	echo ""._MD_USERVISIT_INFO." <B>$vm</B><p>";
-  echo "<CENTER><TABLE BORDER=0 CELLPADDING=4 CELLSPACING=1 class='bg2'>
-  <TR>
-      <TD class='bg1'>";
+  echo "</div><br style='clear:both;' />"; 
+
+  echo "<div style='float:left;color:blue;font-weight:600;'>" . _AD_USERVISIT_INFO . "&nbsp;$vm</div>";
+  echo "<br /><br style='clear:both;' />";  
   
-    $result = mysql_query("SELECT name, email, url, user_regdate, user_icq, user_from, user_aim, user_yim, user_msnm, user_occ, bio FROM ".$xoopsDB->prefix("users")." where uname='$vm'");
-	if(mysql_num_rows($result)==1)  {
-while ($user = mysql_fetch_array($result)) {
+    $result = $GLOBALS['xoopsDB']->query("SELECT name, email, url, user_regdate, user_icq, user_from, user_aim, user_yim, user_msnm, user_occ, bio FROM ".$xoopsDB->prefix("users")." where uname='$vm'");
+	if(mysqli_num_rows($result)==1)  {
+while ($user = mysqli_fetch_array($result)) {
 
 	$date = formatTimestamp($user[user_regdate],"s");
-
-        					echo ""._MD_USERVISIT_DATE." ".$date."<br>\n";
-		if ($user[name]) { 	echo ""._MD_USERVISIT_NAME." $user[name]<br>\n"; }
-		if ($user[url]) { 	echo ""._MD_USERVISIT_WEBSITE." <a href=\"$user[url]\" TARGET=\"_blank\">$user[url]</a><br>\n"; }
-		if ($user[email]) { 	echo ""._MD_USERVISIT_MAIL." <a href=\"mailto:$user[email]\">$user[email]</a><br>\n"; }
-		if ($user[user_occ]) {	echo ""._MD_USERVISIT_OCCUP." $user[user_occ]<br>\n";}
-		if ($user[user_icq]) {	echo ""._MD_USERVISIT_ICQ." $user[user_icq]<br>\n";}
-		if ($user[user_aim]) {	echo ""._MD_USERVISIT_AIM." $user[user_aim]<br>\n";}
-		if ($user[user_yim]) {	echo ""._MD_USERVISIT_YIM." $user[user_yim]<br>\n";}
-		if ($user[user_msnm]) {	echo ""._MD_USERVISIT_MSNM." $user[user_msnm]<br>\n";}
-		if ($user[user_from]) {	echo ""._MD_USERVISIT_FROM." $user[user_from]<br>\n";}
-		if ($user[bio]) {		echo ""._MD_USERVISIT_BIO." $user[bio]<br>\n";}
-
+  echo "<div style='float:left;font-weight:600;text-align:left;'>";
+        					echo ""._AD_USERVISIT_DATE." ".$date."<br>\n";
+		if ($user[name]) { 	echo ""._AD_USERVISIT_NAME." : $user[name]<br>\n"; }
+		if ($user[url]) { 	echo ""._AD_USERVISIT_WEBSITE." <a href=\"$user[url]\" TARGET=\"_blank\">$user[url]</a><br>\n"; }
+		if ($user[email]) { 	echo ""._AD_USERVISIT_MAIL." <a href=\"mailto:$user[email]\">$user[email]</a><br>\n"; }
+		if ($user[user_occ]) {	echo ""._AD_USERVISIT_OCCUP." $user[user_occ]<br>\n";}
+		if ($user[user_icq]) {	echo ""._AD_USERVISIT_ICQ." $user[user_icq]<br>\n";}
+		if ($user[user_aim]) {	echo ""._AD_USERVISIT_AIM." $user[user_aim]<br>\n";}
+		if ($user[user_yim]) {	echo ""._AD_USERVISIT_YIM." $user[user_yim]<br>\n";}
+		if ($user[user_msnm]) {	echo ""._AD_USERVISIT_MSNM." $user[user_msnm]<br>\n";}
+		if ($user[user_from]) {	echo ""._AD_USERVISIT_FROM." $user[user_from]<br>\n";}
+		if ($user[bio]) {		echo ""._AD_USERVISIT_BIO." $user[bio]<br>\n";}
+  echo "</div>";
 }
 	} else {
-		echo "<center>"._MD_USERVISIT_NOINFO." <FONT COLOR=\"#FF0000\">$vm</FONT></center>";
+  echo "<div style='margin:auto;text-align:center;color:blue;'>" . _AD_USERVISIT_NOINFO . "&nbsp;<strong style='color:#FF0000'>$vm</strong></div>";
 	}
 
-	
- echo    "</TD></TR></TABLE></CENTER><P><BR>";
+  echo "<br /><br style='clear:both;' />"; 
+  	
+if($visi == 0) {
+echo "<br style='clear:both;' /></fieldset>";
+} else {
+ echo "<br /><hr style='border:1px dashed black;' /><br /><div style='text-align:center;'><div class='ul_button'><a href='admin.php'>" . _AD_USERVISIT_BACKLIST . "</a></div>&nbsp;&nbsp;<div class='ul_button'><a href='suppr-visit.php?su=mems'>" . _AD_USERVISIT_DELSTAT . "</a></div></div></fieldset>";
+}
 
- echo    "<CENTER>[ <A HREF=\"admin.php\">"._MD_USERVISIT_BACKLIST."</A> | <A HREF=\"suppr-visit.php?su=mems\">"._MD_USERVISIT_DELSTAT."</A> ]</CENTER>";
-
-
-                CloseTable();
-	echo "<P>";
-	            OpenTable();
-	echo "<DIV ALIGN=\"right\">"._MD_USERVISIT_CREDIT." Pascal Le Boustouller </br>"._MD_USERVISIT_AND." <A HREF=\"mailto:solo@wolfpackclan.com\">Solo</A> ( <A HREF=\"http://www.wolfpackclan.com\" TARGET=\"_blank\">www.wolfpackclan.com</A> )</DIV>";
-                CloseTable();
-
-include("../include/admin_footer.php");
-?>
+include 'admin_footer.php';
