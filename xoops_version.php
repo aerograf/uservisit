@@ -1,5 +1,6 @@
 <?php
 use Xmf\Request;
+
 #######################################################
 #  Visites de Membres version 2.1 pour Xoops 2.0.x	#
 #  Copyright © 2002, Pascal Le Boustouller		#
@@ -57,7 +58,7 @@ $modversion = array(
           'support_site_url'          =>  'https://github.com/aerograf/uservisit',
           'support_site_name'         =>  'GitHub',
           'submit_bug'                =>  'http://xoops.org/',
-          'submit_feature'            =>  'http://xoops.org/'     
+          'submit_feature'            =>  'http://xoops.org/'
 );
 
 $modversion['hasNotification'] = 0;

@@ -12,15 +12,15 @@ include("../../../mainfile.php");
 include(XOOPS_ROOT_PATH."/include/cp_functions.php");
 include_once(XOOPS_ROOT_PATH."/kernel/module.php");
 include '../../../include/cp_header.php';
-if($xoopsUser){
-	$xoopsModule = XoopsModule::getByDirname("uservisit");
-	if ( !$xoopsUser->isAdmin($xoopsModule->mid()) ) { 
-		redirect_header(XOOPS_URL."/",3,_NOPERM);
-		exit();
-	}
+if ($xoopsUser) {
+    $xoopsModule = XoopsModule::getByDirname("uservisit");
+    if (!$xoopsUser->isAdmin($xoopsModule->mid())) {
+        redirect_header(XOOPS_URL."/", 3, _NOPERM);
+        exit();
+    }
 } else {
-	redirect_header(XOOPS_URL."/",3,_NOPERM);
-	exit();
+    redirect_header(XOOPS_URL."/", 3, _NOPERM);
+    exit();
 }
 
 
@@ -28,8 +28,9 @@ $myts = MyTextSanitizer::getInstance();
 
 echo "<style>@import '../assets/css/admin.css' screen;</style>";
 
-function mysqli_result($res, $row, $field=0) {
-    	$res->data_seek($row);
-    	$datarow = $res->fetch_array();
-    	return $datarow[$field];
+function mysqli_result($res, $row, $field=0)
+{
+    $res->data_seek($row);
+    $datarow = $res->fetch_array();
+    return $datarow[$field];
 }

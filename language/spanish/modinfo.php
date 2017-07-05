@@ -5,15 +5,14 @@
 // English version : Solo71
 
 // The name of this module
-define("_MI_USERVISIT_NAME",			"Visitas de usuarios");
+define("_MI_USERVISIT_NAME", "Visitas de usuarios");
 
 // A brief description of this module
-define("_MI_USERVISIT_DESC",			"Registro de visitas de usuarios.");
+define("_MI_USERVISIT_DESC", "Registro de visitas de usuarios.");
 
 // Names of blocks for this module (Not all module has blocks)
 //define("_MI_USERVISIT_BNAME1",		"?");
 
 // Names of admin menu items
-define("_MI_USERVISIT_ADMENU1",		"Men&uacute;");
-define("_MI_USERVISIT_ADMENU2",		"Borrar todas las estad&iacute;sticas");
-?>
+define("_MI_USERVISIT_ADMENU1", "Men&uacute;");
+define("_MI_USERVISIT_ADMENU2", "Borrar todas las estad&iacute;sticas");
