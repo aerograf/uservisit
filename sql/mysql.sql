@@ -6,8 +6,7 @@ CREATE TABLE visit_user (
    temps varchar(30) NOT NULL,
    tempsf varchar(30) NOT NULL,
    PRIMARY KEY (id)
-) TYPE=MyISAM;
-
+) ENGINE=MyISAM;
 
 CREATE TABLE visit_user_page (
    id int(11) NOT NULL auto_increment,
@@ -17,4 +16,4 @@ CREATE TABLE visit_user_page (
    langue varchar(20) NOT NULL,
    enregis varchar(20) NOT NULL,
    PRIMARY KEY (id)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;

@@ -2,3 +2,5 @@ Credits
 ===============
 
 Originally developed by Pascal Le Boustouller, and adopted by Solo
+
+Adaptation © 2017 XOOPS 2.5.8+ (PHP7) - Aerograf

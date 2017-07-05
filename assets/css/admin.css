@@ -1,0 +1,139 @@
+/* Style User Visit */
+
+.ul_menu_ind {
+  height:35px;
+  vertical-align:middle;
+}
+
+.ul_dummy {
+  float:right;
+}
+
+.ul_novisit {
+  margin:auto;
+  text-align:center;
+  color:blue;
+}
+
+.ul_members {
+  float:left;
+  color:blue;
+}
+
+.ul_ranking {
+  margin:auto;
+  text-align:center;
+  color:blue;
+}
+
+.ul_div_th_10 {
+  display:inline-block;
+  text-align:center;
+  font-weight:600;
+  width:10%;
+  border:1px dashed black;
+  padding:5px;
+}
+
+.ul_div_th_15 {
+  display:inline-block;
+  text-align:center;
+  font-weight:600;
+  width:15%;
+  border:1px dashed black;
+  padding:5px;
+}
+
+.ul_div_th_20 {
+  display:inline-block;
+  text-align:center;
+  font-weight:600;
+  width:20%;
+  border:1px dashed black;
+  padding:5px;
+}
+
+.ul_div_th_25 {
+  display:inline-block;
+  text-align:center;
+  font-weight:600;
+  width:25%;
+  border:1px dashed black;
+  padding:5px;
+}
+
+.ul_div_th_45 {
+  display:inline-block;
+  text-align:center;
+  font-weight:600;
+  width:45%;
+  border:1px dashed black;
+  padding:5px;
+}
+
+.ul_div_td_10 {
+  display:inline-block;
+  text-align:center;
+  font-weight:600;
+  width:10%;
+  border:1px dotted black;
+  padding:5px;
+  height:24px;
+}
+
+.ul_div_td_u_10 {
+  display:inline-block;
+  text-align:center;
+  font-weight:600;
+  width:10%;
+  border:1px dotted black;
+  padding:5px;
+}
+
+.ul_div_td_15 {
+  display:inline-block;
+  text-align:center;
+  font-weight:600;
+  width:15%;
+  border:1px dotted black;
+  padding:5px;
+  height:24px;
+}
+
+.ul_div_td_20 {
+  display:inline-block;
+  text-align:center;
+  font-weight:600;
+  width:20%;
+  border:1px dotted black;
+  padding:5px;
+}
+
+.ul_div_td_25 {
+  display:inline-block;
+  text-align:left;
+  font-weight:600;
+  width:25%;
+  border:1px dotted black;
+  padding:5px;
+}
+
+.ul_div_td_45 {
+  display:inline-block;
+  text-align:center;
+  font-weight:600;
+  width:45%;
+  border:1px dotted black;
+  padding:5px;
+}
+
+.ul_button {
+  text-align:center;
+  color:blue;
+  border:1px ridge black;
+  background-color:silver;
+  padding:5px;
+  width:250px;
+  display:inline-block;
+}
+
