@@ -195,34 +195,34 @@ if ($visi == 0) {
             echo "<div style='float:left;font-weight:600;text-align:left;'>";
             echo _AD_USERVISIT_DATE . " " . $date . "<br>";
             if ($user['name']) {
-                echo _AD_USERVISIT_NAME . ": " . $user[name] . "<br>";
+                echo _AD_USERVISIT_NAME . ": " . $user['name'] . "<br>";
             }
             if ($user['url']) {
-                echo _AD_USERVISIT_WEBSITE . " <a href=" . $user[url] . " target='_blank'>" . $user[url] . "</a><br>";
+                echo _AD_USERVISIT_WEBSITE . " <a href=" . $user['url'] . " target='_blank'>" . $user['url'] . "</a><br>";
             }
             if ($user['email']) {
-                echo _AD_USERVISIT_MAIL . " <a href='mailto:" . $user[email] . "'>" . $user[email] . "</a><br>";
+                echo _AD_USERVISIT_MAIL . " <a href='mailto:" . $user['email'] . "'>" . $user['email'] . "</a><br>";
             }
             if ($user['user_occ']) {
-                echo _AD_USERVISIT_OCCUP . " " . $user[user_occ] . "<br>";
+                echo _AD_USERVISIT_OCCUP . " " . $user['user_occ'] . "<br>";
             }
             if ($user['user_icq']) {
-                echo _AD_USERVISIT_ICQ . " " . $user[user_icq] . "<br>";
+                echo _AD_USERVISIT_ICQ . " " . $user['user_icq'] . "<br>";
             }
             if ($user['user_aim']) {
-                echo _AD_USERVISIT_AIM . " " . $user[user_aim] . "<br>";
+                echo _AD_USERVISIT_AIM . " " . $user['user_aim'] . "<br>";
             }
             if ($user['user_yim']) {
-                echo _AD_USERVISIT_YIM . " " . $user[user_yim] . "<br>";
+                echo _AD_USERVISIT_YIM . " " . $user['user_yim'] . "<br>";
             }
             if ($user['user_msnm']) {
-                echo _AD_USERVISIT_MSNM . " " . $user[user_msnm] . "<br>";
+                echo _AD_USERVISIT_MSNM . " " . $user['user_msnm'] . "<br>";
             }
             if ($user['user_from']) {
-                echo _AD_USERVISIT_FROM . " " . $user[user_from] . "<br>";
+                echo _AD_USERVISIT_FROM . " " . $user['user_from'] . "<br>";
             }
             if ($user['bio']) {
-                echo _AD_USERVISIT_BIO . " " . $user[bio] . "<br>";
+                echo _AD_USERVISIT_BIO . " " . $user['bio'] . "<br>";
             }
             echo "</div>";
         }
