@@ -10,33 +10,38 @@ use Xmf\Request;
 #  									#
 #  Licence : GPL 							#
 #######################################################
-$moduleDirName = basename(__DIR__);
-xoops_load('xoopseditorhandler');
+
+xoops_load('XoopsEditorHandler');
 $editorHandler = XoopsEditorHandler::getInstance();
+$moduleDirName = basename(__DIR__);
 $xoops_url     = parse_url(XOOPS_URL);
 
-$modversion = array(
-          'name'              =>  _MI_USERVISIT_NAME,
+$modversion = [
           'version'           =>  2.5,
+          'module_status'       => 'Beta 2 - Test',
+          'release_date'        => '2017/10/05',
+          'name'                => _MI_USERVISIT_NAME,
           'description'       =>  _MI_USERVISIT_DESC,
           'credits'           =>  'Pascal Le Boustouller',
           'author'            =>  'Solo ( www.wolfpackclan.com )',
           'license'           =>  'GPL see LICENSE',
           'official'          =>  0,
-          'image'             =>  'assets/images/uservisit_slogo.png',
+          'image'               => 'assets/images/logoModule.png',
           'dirname'           =>  'uservisit',
           'min_php'           =>  '5.5',
           'min_xoops'         =>  '2.5.8+',
           'min_admin'         =>  '1.2',
+          'dirname'             => $moduleDirName,
+          'modicons16'          => 'assets/images/icons/16',
+          'modicons32'          => 'assets/images/icons/32',
           'module_website_url'    =>  'www.xoops.org',
           'module_website_name'   =>  'XOOPS',
-          'module_status'     =>  'Beta 1 - Test',
           //sql tables
-          'sqlfile'           =>  array('mysql' => 'sql/mysql.sql'),
-          'tables'            =>  array(
+          'sqlfile'             => ['mysql' => 'sql/mysql.sql'],
+          'tables'              => [
                             'visit_user',
                             'visit_user_page'
-          ),
+          ],
           // Admin
           'hasAdmin'          =>  1,
           'adminindex'        =>  'admin/index.php',
@@ -46,7 +51,7 @@ $modversion = array(
           'hasProfile'        =>  0,
           'hasMain'           =>  0,
           // XoopsInfo
-          'developer_website_url'     =>  'https://www.shmel.org/forums/viewtopic.php?forum=8&topic_id=25',
+          'developer_website_url'     =>  'https://www.shmel.org/forums/viewtopic.php?forum=8',
           'developer_website_name'    =>  'SHMEL.ORG',
           'download_website'          =>  'https://github.com/aerograf/uservisit',
           'status_fileinfo'           =>  '',
@@ -59,6 +64,6 @@ $modversion = array(
           'support_site_name'         =>  'GitHub',
           'submit_bug'                =>  'https://xoops.org/',
           'submit_feature'            =>  'https://xoops.org/'
-);
+];
 
 $modversion['hasNotification'] = 0;

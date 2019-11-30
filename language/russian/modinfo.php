@@ -22,4 +22,4 @@ define('_MI_USERVISIT_DESC', 'Запись посещений страниц п�
 define('_MI_USERVISIT_ADMENU0', 'Главная');
 define('_MI_USERVISIT_ADMENU1', 'Просмотр');
 define('_MI_USERVISIT_ADMENU2', 'Удалить все данные');
-define('_MI_USERVISIT_ADMENU3', 'About');
+define('_MI_USERVISIT_ADMENU3', 'О модуле');
