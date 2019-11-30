@@ -12,8 +12,8 @@
 
     global $xoopsDB, $xoopsUser;
     $httprefmax = '500';
-      $res = $GLOBALS['xoopsDB']->query('SELECT * FROM ' . $xoopsDB->prefix('visit_user_page') . '');
-      $numrows = $res->num_rows;
+      $res      = $GLOBALS['xoopsDB']->query('SELECT * FROM ' . $xoopsDB->prefix('visit_user_page') . '');
+      $numrows  = $res->num_rows;
       if (($numrows + 1) >= $httprefmax) {
           $GLOBALS['xoopsDB']->queryF('delete FROM ' . $xoopsDB->prefix('visit_user_page') . " WHERE enregis = 'termine'");
           $GLOBALS['xoopsDB']->queryF('delete FROM ' . $xoopsDB->prefix('visit_user') . " WHERE ip = 'termine'");
@@ -22,20 +22,20 @@
 
     if ($xoopsUser) {
         $lognom = $xoopsUser->uname();
-        $addip = $_SERVER['REMOTE_ADDR'];
+        $addip  = $_SERVER['REMOTE_ADDR'];
         $langue = $_SERVER['HTTP_ACCEPT_LANGUAGE'];
-        $nav = $_SERVER['HTTP_USER_AGENT'];
-        $page = $_SERVER['REQUEST_URI'];
+        $nav    = $_SERVER['HTTP_USER_AGENT'];
+        $page   = $_SERVER['REQUEST_URI'];
          
         if (!$page) {
             $page = 'index.php';
         }
             
-        $result = $GLOBALS['xoopsDB']->query('SELECT visitname, temps, tempsf  FROM ' . $xoopsDB->prefix('visit_user') . " WHERE visitname='$lognom' AND ip='$addip'");
+        $result          = $GLOBALS['xoopsDB']->query('SELECT visitname, temps, tempsf  FROM ' . $xoopsDB->prefix('visit_user') . " WHERE visitname='$lognom' AND ip='$addip'");
         while ($resultat = $GLOBALS['xoopsDB']->fetchArray($result)) {
-            $visitname = $resultat['visitname'];
-            $tem = $resultat['temps'];
-            $temf = $resultat['tempsf'];
+            $visitname   = $resultat['visitname'];
+            $tem         = $resultat['temps'];
+            $temf        = $resultat['tempsf'];
         }
 
         $tempe = time();
@@ -64,4 +64,4 @@
         $GLOBALS['xoopsDB']->queryF('INSERT INTO ' . $xoopsDB->prefix('visit_user') . " VALUES ('','$lognom','$nvisit','$addip','$tempe','$tempes')");
         $GLOBALS['xoopsDB']->queryF('INSERT INTO ' . $xoopsDB->prefix('visit_user_page') . " VALUES ('', '$lognom', '$page', '$nav', '$langue', '$addip')");
     }
-    }
+}

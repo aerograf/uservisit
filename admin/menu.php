@@ -24,29 +24,29 @@ $pathModIcon32 = $moduleHelper->getModule()->getInfo('modicons32');
 $moduleHelper->loadLanguage('modinfo');
 $moduleHelper->loadLanguage('admin');
 
-$adminmenu = array(
-    array(
-          'title'     =>  _MI_USERVISIT_ADMENU0,
-          'link'      =>  'admin/index.php',
-          'desc'      =>  '',
-          'icon'    =>    'assets/images/slogo.png'
-          ),
-    array(
-          'title'     =>  _MI_USERVISIT_ADMENU1,
-          'link'      =>  'admin/admin.php',
-          'desc'      =>  '',
-          'icon'    =>    'assets/images/view.png'
-          ),
-    array(
-          'title'     =>  _MI_USERVISIT_ADMENU2,
-          'link'      =>  'admin/suppr-visit.php?su=mems',
-          'desc'      =>  '',
-          'icon'    =>    'assets/images/del.png'
-          ),
-    array(
-          'title'     =>  _MI_USERVISIT_ADMENU3,
-          'link'      =>  'admin/about.php',
-          'desc'      =>  '',
-          'icon'    =>    'assets/images/about.png'
-          )
-);
+$adminmenu = [
+    [
+     'title'   =>  _MI_USERVISIT_ADMENU0,
+     'link'    =>  'admin/index.php',
+     'desc'    =>  '',
+     'icon'    =>    $pathModIcon32 . '/slogo.png'
+    ],
+    [
+     'title'   =>  _MI_USERVISIT_ADMENU1,
+     'link'    =>  'admin/admin.php',
+     'desc'    =>  '',
+     'icon'    =>    $pathModIcon32 . '/view.png'
+    ],
+    [
+     'title'   =>  _MI_USERVISIT_ADMENU2,
+     'link'    =>  'admin/suppr-visit.php?su=mems',
+     'desc'    =>  '',
+     'icon'    =>    $pathModIcon32 . '/del.png'
+    ],
+    [
+     'title'   =>  _MI_USERVISIT_ADMENU3,
+     'link'    =>  'admin/about.php',
+     'desc'    =>  '',
+     'icon'    =>    $pathModIcon32 . '/about.png'
+    ]
+];
