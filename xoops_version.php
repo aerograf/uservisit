@@ -57,8 +57,8 @@ $modversion = array(
           'demo_site_name'            =>  '',
           'support_site_url'          =>  'https://github.com/aerograf/uservisit',
           'support_site_name'         =>  'GitHub',
-          'submit_bug'                =>  'http://xoops.org/',
-          'submit_feature'            =>  'http://xoops.org/'
+          'submit_bug'                =>  'https://xoops.org/',
+          'submit_feature'            =>  'https://xoops.org/'
 );
 
 $modversion['hasNotification'] = 0;
